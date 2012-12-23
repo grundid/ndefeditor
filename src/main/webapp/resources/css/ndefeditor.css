@@ -1,0 +1,23 @@
+.ndef-record {
+	background-color: #fafafa;
+	padding: 4px;
+	position: relative;
+	min-height: 1.5em;
+}
+
+.footer {
+	border-top: 1px solid #E5E5E5;
+	margin-top: 45px;
+	padding: 35px 0 36px;
+}
+
+.intro {
+	margin:5px 0px;
+	padding:5px 0px;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+.menu-button {
+	float: left;
+	margin-right: 5px;
+}

@@ -131,11 +131,6 @@
 			<artifactId>nfctools-ndef</artifactId>
 			<version>${org.nfctools-version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.nfctools</groupId>
-			<artifactId>nfctools-applet</artifactId>
-			<version>1.0-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<build>

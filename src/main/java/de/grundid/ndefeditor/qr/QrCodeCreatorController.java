@@ -27,8 +27,6 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.ObjectMapper;
-import org.nfctools.applet.ndef.BuilderConfig;
-import org.nfctools.applet.ndef.NdefBuilderService;
 import org.nfctools.ndef.NdefContext;
 import org.nfctools.ndef.Record;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +35,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import de.grundid.ndefeditor.ndef.BuilderConfig;
+import de.grundid.ndefeditor.ndef.NdefBuilderService;
+
 @Controller
 @RequestMapping("/qrCodeCreator")
 public class QrCodeCreatorController {
@@ -44,7 +45,6 @@ public class QrCodeCreatorController {
 	private NdefBuilderService ndefBuilderService = BuilderConfig.getBuilderServiceInstance();
 	@Autowired
 	private QrCodeCreator qrCodeCreator;
-
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	@SuppressWarnings("unchecked")
@@ -65,10 +65,8 @@ public class QrCodeCreatorController {
 		byte[] encode = NdefContext.getNdefMessageEncoder().encode(records);
 		BufferedImage bufferedImage = qrCodeCreator.createQrImage(encode);
 		ByteArrayOutputStream image = qrCodeCreator.encodeBufferedImage(bufferedImage);
-
 		String key = "qr-" + System.identityHashCode(image);
 		session.setAttribute(key, image);
-
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("key", key);
 		return map;
